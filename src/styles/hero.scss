@@ -1,0 +1,19 @@
+.hero {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+
+    &:after {
+        content: '';
+        display: block;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 56%;
+        position: absolute;
+        background: url("../assets/images/weather.jpg") no-repeat center;
+        background-size: cover;
+        z-index: -1;
+        box-shadow:  inset 20px 0px 60px -8px theme('colors.gray.300');
+    }
+}

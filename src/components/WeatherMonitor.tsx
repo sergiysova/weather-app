@@ -53,7 +53,7 @@ const WeatherMonitor: React.FunctionComponent = () => {
                 }
             })
         }
-    },[city])
+    },[city, setSearchParams])
 
     const handleCityChange = (option: ValueType<SelectOption, false>) => {
         if (option) setCity(option);
@@ -104,11 +104,11 @@ const WeatherMonitor: React.FunctionComponent = () => {
         <section className="monitor p-10 bg-gray-300">
             <div className="container mx-auto border-2 rounded-md border-gray-600 p-6 grid grid-cols-2 gap-6">
                 <div className="w1/2">
-                    <h1 className="text-2xl font-bold mb-3">{city.value ? `Weather for ${city.label}` : 'No city chosen'} {}</h1>
-                    <div className="border rounded-md border-gray-600 p-6">
+                    <div className="border rounded-md border-gray-600 p-6 h-full">
+                        <h1 className="text-2xl font-bold mb-3">{city.value ? `Weather for ${city.label}` : 'No city chosen'} {}</h1>
                         {
                             !weather.weather ? (
-                                <div className="no-data">
+                                <div className="no-data mb-12">
                                     {
                                         weather.status.loading && <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24" />
                                     }
@@ -117,7 +117,7 @@ const WeatherMonitor: React.FunctionComponent = () => {
                                     }
                                 </div>
                             ) : (
-                                <div className="weather-overview  mb-12">
+                                <div className="weather-overview mb-12">
                                     <div className="flex items-center py-2">
                                         <img src={weather.weather.current.condition.icon} alt={weather.weather.current.condition.icon} />
                                         <p className="text-xl text-blue-900">{weather.weather.current.condition.text}</p>
@@ -144,7 +144,7 @@ const WeatherMonitor: React.FunctionComponent = () => {
                     </div>
                 </div>
                 <div className="border rounded-md border-gray-600 p-6">
-                   <Map lon={weather.weather ? weather.weather.location.lon : 50.45} lat={weather.weather ? weather.weather.location.lat : 30.52}/>
+                   <Map lon={weather.weather ? weather.weather.location.lon : 30.52} lat={weather.weather ? weather.weather.location.lat : 50.45}/>
                 </div>
             </div>
         </section>

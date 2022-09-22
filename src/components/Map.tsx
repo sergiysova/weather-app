@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, useMap} from 'react-leaflet';
 
 type MapProps = {
     lat: number,
@@ -8,6 +8,7 @@ type MapProps = {
 
 const ChangeView: React.FunctionComponent<MapProps> = ({lat, lon}) => {
     const map = useMap();
+    console.log(lat, lon)
     map.setView([lat, lon], 13);
     return null;
 }

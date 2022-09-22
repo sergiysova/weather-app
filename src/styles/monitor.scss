@@ -1,1 +1,7 @@
 @import 'leaflet/dist/leaflet.css';
+
+section.monitor {
+    .no-data {
+        min-height: 180px;
+    }
+}
